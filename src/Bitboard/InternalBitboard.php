@@ -24,7 +24,7 @@ class InternalBitboard
     {
         $output = "+---+---+---+---+---+---+---+---+\n";
 
-        for ($rank = Ranks::RANK_8->value; $rank >= 0; --$rank) {
+        for ($rank = Ranks::RANK_8->value; $rank >= Ranks::RANK_1->value; --$rank) {
             for ($file = Files::FILE_A->value; $file <= Files::FILE_H->value; ++$file) {
 
                 // $mask = makeSquare($file, $rank);
