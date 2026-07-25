@@ -10,7 +10,7 @@ class BitboardTest extends TestCase
     public function testBitboard()
     {
         $bitboard = new Bitboard();
-        var_dump($bitboard->getWhiteKingBitboard()->getValue()->toString());
+        var_dump($bitboard->getWhiteKingBitboard()->pretty());
         $this->assertInstanceOf(Bitboard::class, $bitboard);
     }
 }
