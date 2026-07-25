@@ -3,7 +3,7 @@
 namespace piotrbaczek\ChessEngine;
 
 use phpseclib3\Math\BigInteger;
-use piotrbaczek\ChessEngine\BItboard\InternalBitboard;
+use piotrbaczek\ChessEngine\Bitboard\InternalBitboard;
 
 class Bitboard
 {

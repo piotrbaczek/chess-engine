@@ -1,6 +1,6 @@
 <?php
 
-namespace piotrbaczek\ChessEngine\BItboard;
+namespace piotrbaczek\ChessEngine\Bitboard;
 
 use phpseclib3\Math\BigInteger;
 
