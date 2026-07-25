@@ -27,11 +27,11 @@ class InternalBitboard
         for ($rank = Ranks::RANK_8->value; $rank >= Ranks::RANK_1->value; --$rank) {
             for ($file = Files::FILE_A->value; $file <= Files::FILE_H->value; ++$file) {
 
-                // $mask = makeSquare($file, $rank);
+                $mask = $this->makeSquare($file, $rank);
 
-//                $output .= bitAnd($bitboard, $mask)->compare(new Number('0')) !== 0
-//                    ? '| X '
-//                    : '|   ';
+                $output .= $this->value->bitwise_and($mask)->compare(new BigInteger(0, 16)) !== 0
+                    ? '| X '
+                    : '|   ';
             }
 
             $output .= '| ' . ($rank + 1) . "\n";
@@ -43,7 +43,10 @@ class InternalBitboard
         return $output;
     }
 
-    private function make_square($f, $r) {
-        // return Square(($r << 3) + $f);
+    private function makeSquare($f, $r): BigInteger
+    {
+        return (new BigInteger($r))
+            ->bitwise_leftShift(3)
+            ->add(new BigInteger($f));
     }
 }
