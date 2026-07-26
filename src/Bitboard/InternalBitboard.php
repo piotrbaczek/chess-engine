@@ -5,9 +5,12 @@ namespace piotrbaczek\ChessEngine\Bitboard;
 use phpseclib3\Math\BigInteger;
 use piotrbaczek\ChessEngine\Dictionaries\Files;
 use piotrbaczek\ChessEngine\Dictionaries\Ranks;
+use Stringable;
 
-class InternalBitboard
+class InternalBitboard implements Stringable
 {
+    use CreateSquareMask;
+
     private BigInteger $value;
 
     public function __construct(BigInteger $value)
@@ -20,7 +23,7 @@ class InternalBitboard
         return $this->value;
     }
 
-    public function pretty(): string
+    public function __toString(): string
     {
         $output = "+---+---+---+---+---+---+---+---+\n";
 
@@ -41,12 +44,5 @@ class InternalBitboard
         $output .= "  a   b   c   d   e   f   g   h\n";
 
         return $output;
-    }
-
-    private function getSquareMask(int $file, int $rank): BigInteger
-    {
-        return (new BigInteger($rank))
-            ->bitwise_leftShift(3)
-            ->add(new BigInteger($file));
     }
 }

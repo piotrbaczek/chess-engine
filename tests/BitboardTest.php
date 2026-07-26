@@ -10,7 +10,7 @@ class BitboardTest extends TestCase
     public function testBitboard()
     {
         $bitboard = new Bitboard();
-        echo $bitboard->getWhiteKingBitboard()->pretty();
+        echo $bitboard->getWhiteKingBitboard();
         $this->assertInstanceOf(Bitboard::class, $bitboard);
     }
 }
