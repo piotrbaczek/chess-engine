@@ -2,7 +2,7 @@
 
 namespace piotrbaczek\ChessEngine\Dictionaries;
 
-enum Squares: int
+enum Squares: int implements CountsEnumCases
 {
     case A1 = 0;
     case B1 = 1;
@@ -78,6 +78,10 @@ enum Squares: int
 
     case NONE = 64;
 
-//    public const ZERO = self::A1;
-//    public const NB = 64;
+    public const ZERO = self::A1;
+
+    public static function getCasesCount(): int
+    {
+        return count(Squares::cases());
+    }
 }

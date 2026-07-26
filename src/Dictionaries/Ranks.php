@@ -2,7 +2,7 @@
 
 namespace piotrbaczek\ChessEngine\Dictionaries;
 
-enum Ranks: int
+enum Ranks: int implements CountsEnumCases
 {
     case RANK_1 = 0;
     case RANK_2 = 1;
@@ -12,5 +12,9 @@ enum Ranks: int
     case RANK_6 = 5;
     case RANK_7 = 6;
     case RANK_8 = 7;
-    case RANK_NB = 8;
+
+    public static function getCasesCount(): int
+    {
+        return count(Ranks::cases());
+    }
 }

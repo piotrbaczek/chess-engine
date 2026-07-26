@@ -27,7 +27,7 @@ class InternalBitboard
         for ($rank = Ranks::RANK_8->value; $rank >= Ranks::RANK_1->value; --$rank) {
             for ($file = Files::FILE_A->value; $file <= Files::FILE_H->value; ++$file) {
 
-                $mask = $this->makeSquare($file, $rank);
+                $mask = $this->getSquareMask($file, $rank);
 
                 $output .= $this->value->bitwise_and($mask)->compare(new BigInteger(0, 16)) !== 0
                     ? '| X '
@@ -43,10 +43,10 @@ class InternalBitboard
         return $output;
     }
 
-    private function makeSquare($f, $r): BigInteger
+    private function getSquareMask(int $file, int $rank): BigInteger
     {
-        return (new BigInteger($r))
+        return (new BigInteger($rank))
             ->bitwise_leftShift(3)
-            ->add(new BigInteger($f));
+            ->add(new BigInteger($file));
     }
 }

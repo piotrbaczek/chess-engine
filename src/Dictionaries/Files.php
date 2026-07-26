@@ -2,7 +2,7 @@
 
 namespace piotrbaczek\ChessEngine\Dictionaries;
 
-enum Files: int
+enum Files: int implements CountsEnumCases
 {
     case FILE_A = 0;
     case FILE_B = 1;
@@ -12,5 +12,9 @@ enum Files: int
     case FILE_F = 5;
     case FILE_G = 6;
     case FILE_H = 7;
-    case FILE_NB = 8;
+
+    public static function getCasesCount(): int
+    {
+        return count(Files::cases());
+    }
 }
