@@ -3,6 +3,7 @@
 namespace piotrbaczek\ChessEngine\Bitboard;
 
 use phpseclib3\Math\BigInteger;
+use piotrbaczek\ChessEngine\Common\Integers;
 use piotrbaczek\ChessEngine\Dictionaries\Files;
 use piotrbaczek\ChessEngine\Dictionaries\Ranks;
 use Stringable;
@@ -32,7 +33,7 @@ class InternalBitboard implements Stringable
 
                 $mask = $this->getSquareMask($file, $rank);
 
-                $output .= $this->value->bitwise_and($mask)->compare(new BigInteger(0, 16)) !== 0
+                $output .= $this->value->bitwise_and($mask)->compare(Integers::zero()) !== 0
                     ? '| X '
                     : '|   ';
             }
