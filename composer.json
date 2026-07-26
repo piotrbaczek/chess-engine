@@ -2,6 +2,7 @@
   "name": "piotrbaczek/chess-engine",
   "description": "Example PHP project",
   "type": "project",
+  "license": "Apache-2.0",
   "require": {
     "php": "^8.5",
     "ext-gmp": "*",
