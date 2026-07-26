@@ -23,7 +23,8 @@
     "ext-xdebug": "*"
   },
   "scripts": {
-    "test": "phpunit ./tests/ --testdox --display-errors --display-warnings --colors=always"
+    "test": "phpunit ./tests/ --testdox --display-errors --display-warnings --colors=always",
+    "test-pipeline": "phpunit ./tests/ --testdox --display-errors --display-warnings --colors=always --coverage-text"
   },
   "minimum-stability": "stable",
   "prefer-stable": true
