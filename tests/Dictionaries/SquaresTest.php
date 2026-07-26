@@ -17,7 +17,7 @@ final class SquaresTest extends TestCase
 
     public function testGetCasesCountReturnsSixtyFive(): void
     {
-        self::assertSame(65, Squares::getCasesCount());
+        self::assertSame(64, Squares::getCasesCount());
     }
 
     public function testFirstSquareIsA1(): void

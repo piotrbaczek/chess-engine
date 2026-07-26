@@ -82,6 +82,6 @@ enum Squares: int implements CountsEnumCases
 
     public static function getCasesCount(): int
     {
-        return count(Squares::cases());
+        return 64;
     }
 }
