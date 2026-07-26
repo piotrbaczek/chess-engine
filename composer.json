@@ -18,7 +18,8 @@
     }
   },
   "require-dev": {
-    "phpunit/phpunit": "^13.0"
+    "phpunit/phpunit": "^13.0",
+    "ext-xdebug": "*"
   },
   "scripts": {
     "test": "phpunit ./tests/"
