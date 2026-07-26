@@ -22,7 +22,7 @@
     "ext-xdebug": "*"
   },
   "scripts": {
-    "test": "phpunit ./tests/ --testdox"
+    "test": "phpunit ./tests/ --testdox --display-errors --display-warnings --colors=always"
   },
   "minimum-stability": "stable",
   "prefer-stable": true
