@@ -22,7 +22,7 @@
     "ext-xdebug": "*"
   },
   "scripts": {
-    "test": "phpunit ./tests/"
+    "test": "phpunit ./tests/ --testdox"
   },
   "minimum-stability": "stable",
   "prefer-stable": true
