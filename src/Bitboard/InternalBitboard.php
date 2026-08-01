@@ -11,7 +11,6 @@ use Stringable;
 class InternalBitboard implements Stringable
 {
     use CreateSquareMask;
-
     private BigInteger $value;
 
     public function __construct(BigInteger $value)
@@ -19,9 +18,9 @@ class InternalBitboard implements Stringable
         $this->value = $value;
     }
 
-    public function getValue(): BigInteger
+    public function getHexValue(): string
     {
-        return $this->value;
+        return $this->value->toHex();
     }
 
     public function __toString(): string
