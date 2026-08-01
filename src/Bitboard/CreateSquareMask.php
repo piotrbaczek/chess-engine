@@ -8,8 +8,7 @@ trait CreateSquareMask
 {
     protected function getSquareMask(int $file, int $rank): BigInteger
     {
-        return (new BigInteger($rank))
-            ->bitwise_leftShift(3)
-            ->add(new BigInteger($file));
+        return (new BigInteger('1', 16))
+            ->bitwise_leftShift(($rank << 3) + $file);
     }
 }

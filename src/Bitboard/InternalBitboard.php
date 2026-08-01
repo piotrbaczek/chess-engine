@@ -11,7 +11,6 @@ use Stringable;
 class InternalBitboard implements Stringable
 {
     use CreateSquareMask;
-
     private BigInteger $value;
 
     public function __construct(BigInteger $value)
