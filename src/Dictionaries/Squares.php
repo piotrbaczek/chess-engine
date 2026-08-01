@@ -2,7 +2,7 @@
 
 namespace piotrbaczek\ChessEngine\Dictionaries;
 
-enum Squares: int implements CountsEnumCases
+enum Squares: int implements CountsEnumCasesInterface
 {
     case A1 = 0;
     case B1 = 1;

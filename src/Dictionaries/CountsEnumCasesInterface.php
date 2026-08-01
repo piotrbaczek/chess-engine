@@ -2,7 +2,7 @@
 
 namespace piotrbaczek\ChessEngine\Dictionaries;
 
-interface CountsEnumCases
+interface CountsEnumCasesInterface
 {
     public static function getCasesCount(): int;
 }

@@ -2,7 +2,7 @@
 
 namespace piotrbaczek\ChessEngine\Dictionaries;
 
-enum Ranks: int implements CountsEnumCases
+enum Ranks: int implements CountsEnumCasesInterface
 {
     case RANK_1 = 0;
     case RANK_2 = 1;
