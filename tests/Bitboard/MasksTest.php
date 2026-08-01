@@ -7,6 +7,8 @@ use piotrbaczek\ChessEngine\Bitboard\Masks;
 
 class MasksTest extends TestCase
 {
+    private Masks $masks;
+
     protected function setUp(): void
     {
         parent::setUp();
