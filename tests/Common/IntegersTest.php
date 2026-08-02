@@ -12,7 +12,7 @@ class IntegersTest extends TestCase
     public function testZeroEqualsZero(): void
     {
         $isEqual = Integers::zero()->equals(new HexInteger(0));
-        $this->assertTrue($isEqual);
+        self::assertTrue($isEqual);
     }
 
     public function testZeroReturnsHexInteger(): void
