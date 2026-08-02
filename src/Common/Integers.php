@@ -2,12 +2,20 @@
 
 namespace piotrbaczek\ChessEngine\Common;
 
-use phpseclib3\Math\BigInteger;
-
-abstract class Integers
+final class Integers
 {
-    public static function zero(): BigInteger
+    private function __construct()
     {
-        return new BigInteger('0', 16);
+
+    }
+
+    private function __clone()
+    {
+
+    }
+
+    public static function zero(): HexInteger
+    {
+        return new HexInteger('0');
     }
 }

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Tests\Dictionaries;
 
 use PHPUnit\Framework\TestCase;
-use piotrbaczek\ChessEngine\Dictionaries\CountsEnumCases;
+use piotrbaczek\ChessEngine\Dictionaries\CountsEnumCasesInterface;
 use piotrbaczek\ChessEngine\Dictionaries\Squares;
 
 final class SquaresTest extends TestCase
@@ -95,7 +95,7 @@ final class SquaresTest extends TestCase
     public function testItImplementsCountsEnumCasesInterface(): void
     {
         self::assertInstanceOf(
-            CountsEnumCases::class,
+            CountsEnumCasesInterface::class,
             Squares::A1
         );
     }

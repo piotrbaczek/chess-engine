@@ -2,9 +2,9 @@
 
 namespace Tests\Bitboard;
 
-use phpseclib3\Math\BigInteger;
 use PHPUnit\Framework\TestCase;
 use piotrbaczek\ChessEngine\Bitboard\InternalBitboard;
+use piotrbaczek\ChessEngine\Common\HexInteger;
 
 class InternalBitboardTest extends TestCase
 {
@@ -13,7 +13,7 @@ class InternalBitboardTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->blackFieldsBitboard = new InternalBitboard(new BigInteger('0xAA55AA55AA55AA55', 16));
+        $this->blackFieldsBitboard = new InternalBitboard(new HexInteger('0xAA55AA55AA55AA55'));
     }
 
     protected function tearDown(): void

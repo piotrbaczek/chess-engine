@@ -2,32 +2,10 @@
 
 namespace piotrbaczek\ChessEngine\Bitboard;
 
-use phpseclib3\Math\BigInteger;
+use piotrbaczek\ChessEngine\Common\HexInteger;
 
 class Masks
 {
-    private const FILES = [
-        'A' => '0101010101010101',
-        'B' => '0202020202020202',
-        'C' => '0404040404040404',
-        'D' => '0808080808080808',
-        'E' => '1010101010101010',
-        'F' => '2020202020202020',
-        'G' => '4040404040404040',
-        'H' => '8080808080808080',
-    ];
-
-    private const RANKS = [
-        1 => 'FF',
-        2 => 'FF00',
-        3 => 'FF0000',
-        4 => 'FF000000',
-        5 => 'FF00000000',
-        6 => 'FF0000000000',
-        7 => 'FF000000000000',
-        8 => 'FF00000000000000',
-    ];
-
     private InternalBitboard $fileAMask;
     private InternalBitboard $fileBMask;
     private InternalBitboard $fileCMask;
@@ -47,15 +25,23 @@ class Masks
 
     public function __construct()
     {
-        foreach (self::FILES as $file => $hex) {
-            $property = "file{$file}Mask";
-            $this->{$property} = new InternalBitboard(new BigInteger($hex, 16));
-        }
+        $this->fileAMask = new InternalBitboard(new HexInteger('0101010101010101'));
+        $this->fileBMask = new InternalBitboard(new HexInteger('0202020202020202'));
+        $this->fileCMask = new InternalBitboard(new HexInteger('0404040404040404'));
+        $this->fileDMask = new InternalBitboard(new HexInteger('0808080808080808'));
+        $this->fileEMask = new InternalBitboard(new HexInteger('1010101010101010'));
+        $this->fileFMask = new InternalBitboard(new HexInteger('2020202020202020'));
+        $this->fileGMask = new InternalBitboard(new HexInteger('4040404040404040'));
+        $this->fileHMask = new InternalBitboard(new HexInteger('8080808080808080'));
 
-        foreach (self::RANKS as $rank => $hex) {
-            $property = "rank{$rank}Mask";
-            $this->{$property} = new InternalBitboard(new BigInteger($hex, 16));
-        }
+        $this->rank1Mask = new InternalBitboard(new HexInteger('FF'));
+        $this->rank2Mask = new InternalBitboard(new HexInteger('FF00'));
+        $this->rank3Mask = new InternalBitboard(new HexInteger('FF0000'));
+        $this->rank4Mask = new InternalBitboard(new HexInteger('FF000000'));
+        $this->rank5Mask = new InternalBitboard(new HexInteger('FF00000000'));
+        $this->rank6Mask = new InternalBitboard(new HexInteger('FF0000000000'));
+        $this->rank7Mask = new InternalBitboard(new HexInteger('FF000000000000'));
+        $this->rank8Mask = new InternalBitboard(new HexInteger('FF00000000000000'));
     }
 
     public function getFileAMask(): InternalBitboard

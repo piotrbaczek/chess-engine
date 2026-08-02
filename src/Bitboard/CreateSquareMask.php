@@ -2,13 +2,13 @@
 
 namespace piotrbaczek\ChessEngine\Bitboard;
 
-use phpseclib3\Math\BigInteger;
+use piotrbaczek\ChessEngine\Common\HexInteger;
 
 trait CreateSquareMask
 {
-    protected function getSquareMask(int $file, int $rank): BigInteger
+    protected function getSquareMask(int $file, int $rank): HexInteger
     {
-        return (new BigInteger('1', 16))
+        return (new HexInteger('1'))
             ->bitwise_leftShift(($rank << 3) + $file);
     }
 }

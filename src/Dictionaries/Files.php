@@ -2,7 +2,7 @@
 
 namespace piotrbaczek\ChessEngine\Dictionaries;
 
-enum Files: int implements CountsEnumCases
+enum Files: int implements CountsEnumCasesInterface
 {
     case FILE_A = 0;
     case FILE_B = 1;
