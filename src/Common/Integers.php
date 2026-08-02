@@ -16,8 +16,8 @@ final class Integers
 
     }
 
-    public static function zero(): BigInteger
+    public static function zero(): HexInteger
     {
-        return new BigInteger('0', 16);
+        return new HexInteger('0');
     }
 }

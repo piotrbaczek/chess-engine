@@ -2,7 +2,7 @@
 
 namespace piotrbaczek\ChessEngine\Bitboard;
 
-use phpseclib3\Math\BigInteger;
+use piotrbaczek\ChessEngine\Common\HexInteger;
 use piotrbaczek\ChessEngine\Common\Integers;
 use piotrbaczek\ChessEngine\Dictionaries\Files;
 use piotrbaczek\ChessEngine\Dictionaries\Ranks;
@@ -11,9 +11,9 @@ use Stringable;
 class InternalBitboard implements Stringable
 {
     use CreateSquareMask;
-    private BigInteger $value;
+    private HexInteger $value;
 
-    public function __construct(BigInteger $value)
+    public function __construct(HexInteger $value)
     {
         $this->value = $value;
     }
