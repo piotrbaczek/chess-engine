@@ -32,7 +32,7 @@ class BitboardTest extends TestCase
         $this->assertEmpty($this->bitboard->getHexValue());
     }
 
-    public function testHasMasks()
+    public function testHasMasks(): void
     {
         $this->assertInstanceOf(Bitboard\Masks::class, $this->bitboard::masks());
         $this->assertInstanceOf(Bitboard\Masks::class, Bitboard::masks());
