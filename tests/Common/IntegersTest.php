@@ -2,6 +2,7 @@
 
 namespace Tests\Common;
 
+use Error;
 use PHPUnit\Framework\TestCase;
 use piotrbaczek\ChessEngine\Common\HexInteger;
 use piotrbaczek\ChessEngine\Common\Integers;
@@ -24,15 +25,8 @@ class IntegersTest extends TestCase
 
     public function testConstructorIsPrivate(): void
     {
-        $reflection = new ReflectionClass(Integers::class);
-
-        self::assertTrue($reflection->getConstructor()->isPrivate());
-    }
-
-    public function testCloneMethodIsPrivate(): void
-    {
-        $reflection = new ReflectionClass(Integers::class);
-
-        self::assertTrue($reflection->getMethod('__clone')->isPrivate());
+        $this->expectException(Error::class);
+        $this->expectExceptionMessageIsOrContains('Call to private piotrbaczek\ChessEngine\Common\Integers::__construct() from scope Tests\Common\IntegersTest');
+        $integer = new Integers();
     }
 }
