@@ -4,6 +4,7 @@ namespace Tests;
 
 use PHPUnit\Framework\TestCase;
 use piotrbaczek\ChessEngine\Bitboard;
+use piotrbaczek\ChessEngine\Common\Integers;
 
 class BitboardTest extends TestCase
 {
@@ -12,7 +13,7 @@ class BitboardTest extends TestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->bitboard = new Bitboard();
+        $this->bitboard = new Bitboard(Integers::zero());
     }
 
     protected function tearDown(): void
@@ -26,8 +27,14 @@ class BitboardTest extends TestCase
         $this->assertInstanceOf(Bitboard::class, $this->bitboard);
     }
 
+    public function testGetHexValueReturnsCorrectValue(): void
+    {
+        $this->assertEmpty($this->bitboard->getHexValue());
+    }
+
     public function testHasMasks()
     {
-        $this->assertInstanceOf(Bitboard\Masks::class, $this->bitboard->masks);
+        $this->assertInstanceOf(Bitboard\Masks::class, $this->bitboard::masks());
+        $this->assertInstanceOf(Bitboard\Masks::class, Bitboard::masks());
     }
 }
