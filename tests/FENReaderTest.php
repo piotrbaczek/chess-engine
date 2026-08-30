@@ -2,6 +2,8 @@
 
 namespace Tests;
 
+use InvalidArgumentException;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use piotrbaczek\ChessEngine\Bitboard;
 use piotrbaczek\ChessEngine\Dictionaries\FEN;
@@ -76,5 +78,27 @@ class FENReaderTest extends TestCase
                     break;
             }
         }
+    }
+
+    public static function provideInvalidTestData(): array
+    {
+        return [
+            ['rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBN w KQkq - 0 1'],
+            ['rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNRR w KQkq - 0 1'],
+            ['rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBXR w KQkq - 0 1'],
+            ['rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0'],
+            ['rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1 extra'],
+        ];
+    }
+
+    /**
+     * @param string $invalidFen
+     * @return void
+     */
+    #[DataProvider('provideInvalidTestData')]
+    public function testInvalidDataFailsWithException(string $invalidFen)
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $position = FENReader::fromFEN($invalidFen);
     }
 }
