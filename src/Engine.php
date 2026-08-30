@@ -10,9 +10,9 @@ class Engine
     private bool $running = true;
 
     public function __construct(
-        private CommandParser $commandParser,
-        private FENReader     $FENReader,
-        private Search        $search)
+        private readonly CommandParser $commandParser,
+        private readonly FENReader     $FENReader,
+        private readonly Search        $search)
     {
     }
 
@@ -69,7 +69,8 @@ class Engine
 
     private function position(array $arguments): void
     {
-        // We'll implement this below.
+        $position = $this->FENReader::fromFEN(join('', $arguments));
+        $this->search->setPosition($position);
     }
 
     private function go(array $arguments): void
