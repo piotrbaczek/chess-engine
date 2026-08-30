@@ -5,12 +5,13 @@ namespace piotrbaczek\ChessEngine;
 use PHPUnit\Framework\Assert;
 use piotrbaczek\ChessEngine\Dictionaries\Pieces;
 use piotrbaczek\ChessEngine\Dictionaries\SideToMove;
+use piotrbaczek\ChessEngine\Position\CastlingRights;
 
 final class Position
 {
     private BitboardCollection $bitboards;
     private SideToMove $sideToMove;
-    private string $castlingRights;
+    private CastlingRights $castlingRights;
     private string $enPassantSquare;
     private int $halfMoveClock;
     private int $fullMoveNumber;
@@ -28,17 +29,19 @@ final class Position
     public function setSideToMove(SideToMove $sideToMove): Position
     {
         $this->sideToMove = $sideToMove;
+
         return $this;
     }
 
-    public function getCastlingRights(): string
+    public function getCastlingRights(): CastlingRights
     {
         return $this->castlingRights;
     }
 
-    public function setCastlingRights(string $castlingRights): Position
+    public function setCastlingRights(CastlingRights $castlingRights): Position
     {
         $this->castlingRights = $castlingRights;
+
         return $this;
     }
 
@@ -50,6 +53,7 @@ final class Position
     public function setEnPassantSquare(string $enPassantSquare): Position
     {
         $this->enPassantSquare = $enPassantSquare;
+
         return $this;
     }
 
@@ -61,6 +65,7 @@ final class Position
     public function setHalfMoveClock(int $halfMoveClock): Position
     {
         $this->halfMoveClock = $halfMoveClock;
+
         return $this;
     }
 
@@ -72,12 +77,12 @@ final class Position
     public function setFullMoveNumber(int $fullMoveNumber): Position
     {
         $this->fullMoveNumber = $fullMoveNumber;
+
         return $this;
     }
 
     public function setBitboard(string $piece, Bitboard $bitboard): self
     {
-        Assert::assertInstanceOf(Pieces::class, Pieces::tryFrom($piece));
         $this->bitboards->offsetSet($piece, $bitboard);
 
         return $this;

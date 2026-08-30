@@ -6,6 +6,7 @@ use InvalidArgumentException;
 use piotrbaczek\ChessEngine\Common\HexInteger;
 use piotrbaczek\ChessEngine\Dictionaries\Pieces;
 use piotrbaczek\ChessEngine\Dictionaries\SideToMove;
+use piotrbaczek\ChessEngine\Position\CastlingRights;
 
 final class FENReader
 {
@@ -22,7 +23,7 @@ final class FENReader
         [
             $board,
             $sideToMove,
-            $castlingRights,
+            $castlingRightsString,
             $enPassantSquare,
             $halfMoveClock,
             $fullMoveNumber,
@@ -97,7 +98,7 @@ final class FENReader
 
         $position = (new Position())
             ->setSideToMove(SideToMove::from($sideToMove))
-            ->setCastlingRights($castlingRights)
+            ->setCastlingRights(new CastlingRights($castlingRightsString))
             ->setEnPassantSquare($enPassantSquare)
             ->setHalfMoveClock((int)$halfMoveClock)
             ->setFullMoveNumber((int)$fullMoveNumber);
