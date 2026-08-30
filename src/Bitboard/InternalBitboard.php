@@ -21,7 +21,7 @@ class InternalBitboard implements Stringable
 
     public function getHexValue(): string
     {
-        return $this->value->toHex();
+        return $this->value->toHex(true);
     }
 
     public function getHexInteger(): HexInteger
