@@ -47,7 +47,7 @@ class Engine
 
     private function uci(): void
     {
-        $this->send('id name PiotrChess');
+        $this->send('id name PBChess 0.1');
         $this->send('id author Piotr Bączek');
 
         $this->send(
@@ -84,6 +84,7 @@ class Engine
 
     private function quit(): void
     {
+        $this->search->stop();
         $this->running = false;
     }
 
