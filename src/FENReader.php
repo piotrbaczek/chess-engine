@@ -4,6 +4,7 @@ namespace piotrbaczek\ChessEngine;
 
 use InvalidArgumentException;
 use piotrbaczek\ChessEngine\Common\HexInteger;
+use piotrbaczek\ChessEngine\Dictionaries\Ranks;
 use piotrbaczek\ChessEngine\Dictionaries\SideToMove;
 use piotrbaczek\ChessEngine\Position\CastlingRights;
 
@@ -36,7 +37,7 @@ final class FENReader
 
         $ranks = explode('/', $board);
 
-        if (count($ranks) !== 8) {
+        if (count($ranks) !== Ranks::getCasesCount()) {
             throw new InvalidArgumentException(
                 'Invalid FEN: board must contain 8 ranks.'
             );
