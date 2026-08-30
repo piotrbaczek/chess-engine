@@ -5,8 +5,9 @@ namespace piotrbaczek\ChessEngine;
 use piotrbaczek\ChessEngine\Bitboard\InternalBitboard;
 use piotrbaczek\ChessEngine\Bitboard\Masks;
 use piotrbaczek\ChessEngine\Common\HexInteger;
+use Stringable;
 
-class Bitboard
+class Bitboard implements Stringable
 {
     private static ?Masks $masks = null;
     private InternalBitboard $internalBitBoard;
@@ -29,5 +30,29 @@ class Bitboard
     public function getHexValue(): string
     {
         return $this->internalBitBoard->getHexValue();
+    }
+
+    public function getValue(): HexInteger
+    {
+        return $this->internalBitBoard->getValue();
+    }
+
+    public function bitwiseLeftShift(int $bytes):self
+    {
+        $this->internalBitBoard->bitwiseLeftShift($bytes);
+
+        return $this;
+    }
+
+    public function bitwiseOr(Bitboard $bitboard): self
+    {
+        $this->internalBitBoard->bitwiseOr($bitboard);
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->internalBitBoard->__toString();
     }
 }

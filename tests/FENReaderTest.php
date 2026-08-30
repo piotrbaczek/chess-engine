@@ -14,5 +14,9 @@ class FENReaderTest extends TestCase
         $position = FENReader::fromFEN(FEN::STARTING->value);
 
         $this->assertInstanceOf(Position::class, $position);
+
+        foreach ($position->getBitboards() as $key => $bitboard) {
+            echo $key . PHP_EOL . $bitboard;
+        }
     }
 }

@@ -2,6 +2,7 @@
 
 namespace piotrbaczek\ChessEngine\Bitboard;
 
+use piotrbaczek\ChessEngine\Bitboard;
 use piotrbaczek\ChessEngine\Common\HexInteger;
 use piotrbaczek\ChessEngine\Common\Integers;
 use piotrbaczek\ChessEngine\Dictionaries\Files;
@@ -21,6 +22,25 @@ class InternalBitboard implements Stringable
     public function getHexValue(): string
     {
         return $this->value->toHex();
+    }
+
+    public function getValue(): HexInteger
+    {
+        return $this->value;
+    }
+
+    public function bitwiseLeftShift(int $bytes): self
+    {
+        $this->value = $this->value->bitwise_leftShift($bytes);
+
+        return $this;
+    }
+
+    public function bitwiseOr(Bitboard $bitboard): self
+    {
+        $this->value = $this->value->bitwise_or($bitboard->getValue());
+
+        return $this;
     }
 
     public function __toString(): string
