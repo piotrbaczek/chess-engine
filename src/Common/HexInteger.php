@@ -2,7 +2,7 @@
 
 namespace piotrbaczek\ChessEngine\Common;
 
-use phpseclib3\Math\BigInteger as PHPSecLibBigInteger;
+use phpseclib4\Math\BigInteger as PHPSecLibBigInteger;
 
 class HexInteger extends PHPSecLibBigInteger
 {
