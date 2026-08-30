@@ -30,18 +30,18 @@ class MasksTest extends TestCase
         $this->assertEquals('1010101010101010', $this->masks->getFileEMask()->getHexValue());
         $this->assertEquals('2020202020202020', $this->masks->getFileFMask()->getHexValue());
         $this->assertEquals('4040404040404040', $this->masks->getFileGMask()->getHexValue());
-        $this->assertEquals('8080808080808080', $this->masks->getFileHMask()->getHexValue());
+        $this->assertEquals('008080808080808080', $this->masks->getFileHMask()->getHexValue());
     }
 
     public function testInitialRankValuesAreCorrect(): void
     {
-        $this->assertEquals('ff', $this->masks->getRank1Mask()->getHexValue());
-        $this->assertEquals('ff00', $this->masks->getRank2Mask()->getHexValue());
-        $this->assertEquals('ff0000', $this->masks->getRank3Mask()->getHexValue());
-        $this->assertEquals('ff000000', $this->masks->getRank4Mask()->getHexValue());
-        $this->assertEquals('ff00000000', $this->masks->getRank5Mask()->getHexValue());
-        $this->assertEquals('ff0000000000', $this->masks->getRank6Mask()->getHexValue());
-        $this->assertEquals('ff000000000000', $this->masks->getRank7Mask()->getHexValue());
-        $this->assertEquals('ff00000000000000', $this->masks->getRank8Mask()->getHexValue());
+        $this->assertEquals('00ff', $this->masks->getRank1Mask()->getHexValue());
+        $this->assertEquals('00ff00', $this->masks->getRank2Mask()->getHexValue());
+        $this->assertEquals('00ff0000', $this->masks->getRank3Mask()->getHexValue());
+        $this->assertEquals('00ff000000', $this->masks->getRank4Mask()->getHexValue());
+        $this->assertEquals('00ff00000000', $this->masks->getRank5Mask()->getHexValue());
+        $this->assertEquals('00ff0000000000', $this->masks->getRank6Mask()->getHexValue());
+        $this->assertEquals('00ff000000000000', $this->masks->getRank7Mask()->getHexValue());
+        $this->assertEquals('00ff00000000000000', $this->masks->getRank8Mask()->getHexValue());
     }
 }

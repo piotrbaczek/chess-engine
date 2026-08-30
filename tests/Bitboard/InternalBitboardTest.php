@@ -24,7 +24,7 @@ class InternalBitboardTest extends TestCase
 
     public function testInternalBitboardReturnsHex()
     {
-        $this->assertEquals('aa55aa55aa55aa55', $this->blackFieldsBitboard->getHexValue());
+        $this->assertEquals('00aa55aa55aa55aa55', $this->blackFieldsBitboard->getHexValue());
     }
 
     public function testInternalBitboardCanBeDrawn()

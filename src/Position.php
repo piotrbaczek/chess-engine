@@ -2,6 +2,92 @@
 
 namespace piotrbaczek\ChessEngine;
 
-class Position
+use piotrbaczek\ChessEngine\Dictionaries\SideToMove;
+use piotrbaczek\ChessEngine\Position\CastlingRights;
+
+final class Position
 {
+    private BitboardCollection $bitboards;
+    private SideToMove $sideToMove;
+    private CastlingRights $castlingRights;
+    private string $enPassantSquare;
+    private int $halfMoveClock;
+    private int $fullMoveNumber;
+
+    public function __construct()
+    {
+        $this->bitboards = new BitboardCollection();
+    }
+
+    public function getSideToMove(): SideToMove
+    {
+        return $this->sideToMove;
+    }
+
+    public function setSideToMove(SideToMove $sideToMove): Position
+    {
+        $this->sideToMove = $sideToMove;
+
+        return $this;
+    }
+
+    public function getCastlingRights(): CastlingRights
+    {
+        return $this->castlingRights;
+    }
+
+    public function setCastlingRights(CastlingRights $castlingRights): Position
+    {
+        $this->castlingRights = $castlingRights;
+
+        return $this;
+    }
+
+    public function getEnPassantSquare(): string
+    {
+        return $this->enPassantSquare;
+    }
+
+    public function setEnPassantSquare(string $enPassantSquare): Position
+    {
+        $this->enPassantSquare = $enPassantSquare;
+
+        return $this;
+    }
+
+    public function getHalfMoveClock(): int
+    {
+        return $this->halfMoveClock;
+    }
+
+    public function setHalfMoveClock(int $halfMoveClock): Position
+    {
+        $this->halfMoveClock = $halfMoveClock;
+
+        return $this;
+    }
+
+    public function getFullMoveNumber(): int
+    {
+        return $this->fullMoveNumber;
+    }
+
+    public function setFullMoveNumber(int $fullMoveNumber): Position
+    {
+        $this->fullMoveNumber = $fullMoveNumber;
+
+        return $this;
+    }
+
+    public function setBitboard(string $piece, Bitboard $bitboard): self
+    {
+        $this->bitboards->offsetSet($piece, $bitboard);
+
+        return $this;
+    }
+
+    public function getBitboards(): BitboardCollection
+    {
+        return $this->bitboards;
+    }
 }

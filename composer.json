@@ -5,8 +5,10 @@
   "license": "Apache-2.0",
   "require": {
     "php": "^8.5",
+    "ext-ctype": "*",
     "ext-gmp": "*",
-    "phpseclib/phpseclib": "^3.0"
+    "phpseclib/phpseclib": "^3.0",
+    "ramsey/collection": "^2.1"
   },
   "autoload": {
     "psr-4": {
