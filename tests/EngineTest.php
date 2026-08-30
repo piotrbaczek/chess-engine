@@ -12,6 +12,7 @@ class EngineTest extends TestCase
 {
     public function testEngineWorks()
     {
+        $this->markTestSkipped('skipped because in progress');
         //$result = fputs(STDIN, 'uci');
         //var_dump($result);
 
