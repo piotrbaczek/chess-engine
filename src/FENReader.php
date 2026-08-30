@@ -4,7 +4,6 @@ namespace piotrbaczek\ChessEngine;
 
 use InvalidArgumentException;
 use piotrbaczek\ChessEngine\Common\HexInteger;
-use piotrbaczek\ChessEngine\Dictionaries\Pieces;
 use piotrbaczek\ChessEngine\Dictionaries\SideToMove;
 use piotrbaczek\ChessEngine\Position\CastlingRights;
 
@@ -29,11 +28,11 @@ final class FENReader
             $fullMoveNumber,
         ] = $parts;
 
+        /**
+         * AbstractCollection<Bitboard> $bitboards
+         */
         $bitboards = new BitboardCollection();
-
-        foreach (Pieces::cases() as $case) {
-            $bitboards->offsetSet($case->value, new Bitboard(new HexInteger('0')));
-        }
+        $bitboards->initializeWithEmptyOffsets();
 
         $ranks = explode('/', $board);
 
@@ -54,7 +53,7 @@ final class FENReader
                     continue;
                 }
 
-                if (!isset($bitboards[$character])) {
+                if (!$bitboards->offsetExists($character)) {
                     throw new InvalidArgumentException(
                         "Invalid FEN: invalid piece '$character'."
                     );
@@ -83,8 +82,7 @@ final class FENReader
                 $squareBit = new Bitboard(new HexInteger('1'));
                 $squareBit = $squareBit->bitwiseLeftShift($square);
 
-                $bitboards[$character] = $bitboards[$character]
-                    ->bitwiseOr($squareBit);
+                $bitboards->offsetSet($character, $bitboards->offsetGet($character)->bitwiseOr($squareBit));
 
                 ++$file;
             }
