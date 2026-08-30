@@ -2,8 +2,6 @@
 
 namespace piotrbaczek\ChessEngine;
 
-use PHPUnit\Framework\Assert;
-use piotrbaczek\ChessEngine\Dictionaries\Pieces;
 use piotrbaczek\ChessEngine\Dictionaries\SideToMove;
 use piotrbaczek\ChessEngine\Position\CastlingRights;
 

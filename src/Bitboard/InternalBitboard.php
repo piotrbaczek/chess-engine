@@ -24,7 +24,7 @@ class InternalBitboard implements Stringable
         return $this->value->toHex();
     }
 
-    public function getValue(): HexInteger
+    public function getHexInteger(): HexInteger
     {
         return $this->value;
     }
@@ -38,7 +38,7 @@ class InternalBitboard implements Stringable
 
     public function bitwiseOr(Bitboard $bitboard): self
     {
-        $this->value = $this->value->bitwise_or($bitboard->getValue());
+        $this->value = $this->value->bitwise_or($bitboard->getHexInteger());
 
         return $this;
     }

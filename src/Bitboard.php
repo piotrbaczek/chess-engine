@@ -32,9 +32,9 @@ class Bitboard implements Stringable
         return $this->internalBitBoard->getHexValue();
     }
 
-    public function getValue(): HexInteger
+    public function getHexInteger(): HexInteger
     {
-        return $this->internalBitBoard->getValue();
+        return $this->internalBitBoard->getHexInteger();
     }
 
     public function bitwiseLeftShift(int $bytes):self
