@@ -1,0 +1,17 @@
+#!/usr/bin/env php
+<?php
+
+require dirname(__DIR__) . '/vendor/autoload.php';
+
+use piotrbaczek\ChessEngine\Engine;
+use piotrbaczek\ChessEngine\FENReader;
+use piotrbaczek\ChessEngine\Search;
+use piotrbaczek\ChessEngine\UCI\CommandParser;
+
+$engine = new Engine(
+    new CommandParser(),
+    new FENReader(),
+    new Search(),
+);
+
+$engine->run();
